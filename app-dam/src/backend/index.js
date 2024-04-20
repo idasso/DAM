@@ -8,16 +8,16 @@ var express = require('express');
 var app = express();
 var pool = require('./mysql-connector');
 const jwt = require('jsonwebtoken')
-const routerDispositivo = require('./routes/dispositivos')
+const routerDispositivo = require('./routes/dispositivos') // 
 
-const YOUR_SECRET_KEY = 'mi llave'
-var testUser = {username: 'test', password: '1234'}
+const YOUR_SECRET_KEY = 'mi llave' // Creacion manual de llave utilizada en la generación del token.
+var testUser = {username: 'test', password: '1234'}  // Creacion manual de ususario y contraseña.
 
 const corsOptions = {
     origin: '*',
 }
 
-var myLogger = function (req, res, next) {
+var myLogger = function (req, res, next) { // Definición de función de callback de prueba.
     console.log('LOGGED')
     next()
 }
@@ -42,9 +42,9 @@ app.use(express.json());
 // to serve static files
 app.use(express.static('/home/node/app/static/'));
 app.use(cors(corsOptions))
-app.use(myLogger)
+app.use(myLogger) // Este middleware se va  a ejecutar en todos los endpoint que tengo definidos para la aplicación dado que no se indicó una ruta para restrigir el uso.
 
-app.use('/dispositivo', routerDispositivo)
+app.use('/dispositivo', routerDispositivo) // Al indicar la ruta el callback que se pasa sólo aplicará a esa ruta.
 
 //=======[ Main module code ]==================================================
 
@@ -91,7 +91,7 @@ app.post('/login', (req, res) => {
     }
 })
 
-app.get('/prueba', authenticator, function(req, res) {
+app.get('   /prueba', authenticator, function(req, res) {
     res.send({message: 'Está autenticado, accede a los datos'})
 })
 
