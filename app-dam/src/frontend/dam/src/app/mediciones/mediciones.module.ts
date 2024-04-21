@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ListadoPageRoutingModule } from './listado-routing.module';
+import { MedicionesPageRoutingModule } from './mediciones-routing.module';
 
-import { ListadoPage } from './listado.page';
+import { MedicionesPage } from './mediciones.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ListadoPageRoutingModule
+    MedicionesPageRoutingModule
   ],
-  declarations: [ListadoPage]
+  declarations: [MedicionesPage]
 })
-export class ListadoPageModule {}
+export class MedicionesPageModule {}
