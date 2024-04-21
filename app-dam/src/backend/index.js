@@ -91,7 +91,7 @@ app.post('/login', (req, res) => {
     }
 })
 
-app.get('   /prueba', authenticator, function(req, res) {
+app.get('/prueba', authenticator, function(req, res) {
     res.send({message: 'Está autenticado, accede a los datos'})
 })
 
