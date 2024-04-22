@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription, fromEvent, interval, map } from 'rxjs';
 import { DispositivoService } from '../services/dispositivo.service';
 import { ActivatedRoute } from '@angular/router';
+import { Dispositivo } from '../interfaces/dispositivo';
 
 @Component({
   selector: 'app-dispositivos',
@@ -12,6 +13,7 @@ export class DispositivosPage implements OnInit, OnDestroy {
 
   observable$: Observable<any>
   // subscription: Subscription
+  listadoDispositivos: Dispositivo[] | undefined
 
   constructor(private _dispositivoService: DispositivoService,
     private _actRouter: ActivatedRoute) {
@@ -22,12 +24,16 @@ export class DispositivosPage implements OnInit, OnDestroy {
     // this.subscription = valuePlusTen$.subscribe((value) => {
     //   console.log(value)
     // })
+
+    
   }
 
   async ngOnInit() {
     await this._dispositivoService.getDispositivos()
       .then((dispositivos) => {
+        this.listadoDispositivos = dispositivos
         console.log(dispositivos)
+        return dispositivos
       })
       .catch((error) => {
         console.log(error)
