@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: MedicionesPage
+  },
+  {
+    path: ':id', // /dispositivos/1
+    component: MedicionesPage
   }
 ];
 

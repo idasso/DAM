@@ -1,21 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>dispositivos</ion-title>
+    <ion-title>Dispositivos</ion-title>
   </ion-toolbar>
-  <button (click)="subscribe()">Sub</button>
+  <!-- <button (click)="subscribe()">Sub</button>
   <br>
   <button (click)="unsubscribe()">Unsub</button>
   <br>
-  <ion-button (click)="requestPrueba()">Request prueba</ion-button>
+  <ion-button (click)="requestPrueba()">Request prueba</ion-button> -->
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-list>
     <ion-item *ngFor="let unidad of listadoDispositivos">
-      <ion-label>Dispositivo ID:        {{unidad.dispositivoId}}</ion-label>
-      <ion-label>Electrovalvula ID:     {{unidad.electrovalvulaId}}</ion-label>
-      <ion-label>Nombre dispositivo:    {{unidad.nombre}}</ion-label>
+      <ion-label>Dispositivo ID: {{unidad.dispositivoId}}</ion-label>
+      <ion-label>Electrovalvula ID: {{unidad.electrovalvulaId}}</ion-label>
+      <ion-label>Nombre dispositivo: {{unidad.nombre}}</ion-label>
       <ion-label>Ubicación dispositivo: {{unidad.ubicacion}}</ion-label>
+      <ion-button routerLink="/mediciones/{{unidad.dispositivoId}}">Ir a mediciones</ion-button>
     </ion-item>
   </ion-list>
   <ion-header collapse="condense">
