@@ -14,6 +14,7 @@ export class DispositivosPage implements OnInit, OnDestroy {
   observable$: Observable<any>
   // subscription: Subscription
   listadoDispositivos: Dispositivo[] | undefined
+  mostrarDetalle: Boolean = false
 
   constructor(private _dispositivoService: DispositivoService,
     private _actRouter: ActivatedRoute) {
@@ -45,6 +46,11 @@ export class DispositivosPage implements OnInit, OnDestroy {
     console.log(`Me llegó el id: ${Number(this._actRouter.snapshot.paramMap.get('id'))}`)
   }
 
+  
+  buttonChange(){
+    return this.mostrarDetalle = !this.mostrarDetalle 
+  }
+  
   // mouseMove$ = fromEvent(document, 'mousemove')
 
   // subscriptionMouseMove = this.mouseMove$.subscribe((evt: any) => {

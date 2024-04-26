@@ -7,17 +7,22 @@
   <button (click)="unsubscribe()">Unsub</button>
   <br>
   <ion-button (click)="requestPrueba()">Request prueba</ion-button> -->
+  <ion-toggle [checked]="mostrarDetalle" (ionChange)="buttonChange()">Mostrar detalle</ion-toggle>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-item *ngFor="let unidad of listadoDispositivos">
-      <ion-label>Dispositivo ID: {{unidad.dispositivoId}}</ion-label>
-      <ion-label>Electrovalvula ID: {{unidad.electrovalvulaId}}</ion-label>
-      <ion-label>Nombre dispositivo: {{unidad.nombre}}</ion-label>
-      <ion-label>Ubicación dispositivo: {{unidad.ubicacion}}</ion-label>
-      <ion-button routerLink="/mediciones/{{unidad.dispositivoId}}">Ir a mediciones</ion-button>
-    </ion-item>
+    
+      <ion-item *ngFor="let unidad of listadoDispositivos">
+        <ion-label>Dispositivo ID: {{unidad.dispositivoId}}</ion-label><br />
+        <div *ngIf="mostrarDetalle">
+          <ion-label>Electrovalvula ID: {{unidad.electrovalvulaId}}</ion-label>
+          <ion-label>Nombre dispositivo: {{unidad.nombre}}</ion-label>
+          <ion-label>Ubicación dispositivo: {{unidad.ubicacion}}</ion-label>
+        </div>
+        <ion-button routerLink="/mediciones/{{unidad.dispositivoId}}">Ir a mediciones</ion-button>
+      </ion-item>
+    
   </ion-list>
   <ion-header collapse="condense">
     
