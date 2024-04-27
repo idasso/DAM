@@ -17,7 +17,7 @@ export class LoginService {
       this.uri + '/login', {username: username, password: password}
     ))
     if (response !== null) {
-      this._router.navigate(['/home'])
+      this._router.navigate(['/dispositivos'])
       localStorage.setItem('token', response.token)
     }
   }
