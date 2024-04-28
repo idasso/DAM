@@ -27,7 +27,11 @@ const routes: Routes = [
   {
     path: 'mediciones',
     loadChildren: () => import('./mediciones/mediciones.module').then( m => m.MedicionesPageModule)
+  },  {
+    path: 'detalle-sensor',
+    loadChildren: () => import('./detalle-sensor/detalle-sensor.module').then( m => m.DetalleSensorPageModule)
   },
+
 
 ];
 
