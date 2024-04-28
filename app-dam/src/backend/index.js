@@ -9,7 +9,7 @@ var app = express();
 var pool = require('./mysql-connector');
 const jwt = require('jsonwebtoken')
 const routerDispositivo = require('./routes/dispositivos') // 
-const routerMedicion = require('./routes/mediciones')
+const routerMedicion = require('./routes/mediciones/')
 
 const YOUR_SECRET_KEY = 'mi llave' // Creacion manual de llave utilizada en la generación del token.
 var testUser = {username: 'test', password: '1234'}  // Creacion manual de ususario y contraseña.

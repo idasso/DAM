@@ -10,7 +10,7 @@ export class MedicionService {
 
   constructor(private _http: HttpClient) { }
 
-  getMediciones (): Promise<any> {
-    return firstValueFrom(this._http.get('http://localhost:8000/mediciones'))
+  getMediciones (id:String): Promise<any> {
+    return firstValueFrom(this._http.get('http://localhost:8000/mediciones/'+id))
   }
 }

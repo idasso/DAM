@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MedicionService } from '../services/medicion.service';
 import { Medicion } from '../interfaces/medicion';
+import { Router, UrlSegment } from '@angular/router';
+
 
 
 
@@ -12,11 +14,23 @@ import { Medicion } from '../interfaces/medicion';
 export class MedicionesPage implements OnInit {
 
   listadoMediciones: Medicion[] | undefined
+  aux: String | undefined
+  id: String
 
-  constructor(private _medicionService: MedicionService) { }
+  constructor(private _medicionService: MedicionService, private router: Router) { 
+    this.aux = router.url.split("/").pop()
+    if (this.aux !== undefined) {
+      this.id = this.aux;
+  } else {
+    this.id = "0" // Como aux puede ser udefined, pongo un manejador para este caso.
+    console.log("Error: 'id' es undefined")
+  }
+    console.log(this.id)
+  }
+  
 
   async ngOnInit() {
-    await this._medicionService.getMediciones()
+    await this._medicionService.getMediciones(this.id)
       .then((mediciones) => {
         this.listadoMediciones = mediciones
         console.log(mediciones)

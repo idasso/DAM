@@ -43,7 +43,7 @@ export class DispositivosPage implements OnInit, OnDestroy {
   }
 
   ionViewWillEnter () {
-    console.log(`Me llegó el id: ${Number(this._actRouter.snapshot.paramMap.get('id'))}`)
+   //console.log(`Me llegó el id: ${Number(this._actRouter.snapshot.paramMap.get('id'))}`)
   }
 
   
