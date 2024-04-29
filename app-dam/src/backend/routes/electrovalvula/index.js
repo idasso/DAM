@@ -3,7 +3,7 @@ const pool = require('../../mysql-connector')
 
 const routerElectrovalvula = express.Router()
 
-//Metodo GET para consultar todos las mediciones en la BD. Luego tendré que filtrar por tipo de dispositivo para hacer la tabla.
+
 routerElectrovalvula.post('/:id/:abrir', function (req, res) {
     console.log("llegó el pedido de post con: "+req.params.id)
     electrovalvulaId = req.params.id
@@ -21,6 +21,7 @@ routerElectrovalvula.post('/:id/:abrir', function (req, res) {
     
 })
 
+//Metodo GET para obtener el ID de electroválvula asociada al ID de dispositivo. 
 routerElectrovalvula.get('/:id', function (req, res) {
     console.log("llegó al backend el id: "+req.params.id)    
     pool.query('Select electrovalvulaId from Dispositivos Where dispositivoId='+req.params.id, function(err, result, fields) {

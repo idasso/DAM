@@ -39,7 +39,7 @@ export class DispositivosPage implements OnInit, OnDestroy {
       .catch((error) => {
         console.log(error)
       })
-    console.log('Me ejecuto primero')
+    //console.log('Me ejecuto primero')
   }
 
   ionViewWillEnter () {

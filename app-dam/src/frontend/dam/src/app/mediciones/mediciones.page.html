@@ -2,8 +2,9 @@
   <ion-toolbar>
     <ion-title>Mediciones</ion-title>
   </ion-toolbar>
-  <ion-button id="Abrir-{{this.id}}" [disabled]="false" (click)="accionElectrovalvula(this.id, '1')">Abrir electrovalvula</ion-button> <!--"1" es para pedir que se abra-->
-  <ion-button id="Cerrar-{{this.id}}"[disabled]="false" (click)="accionElectrovalvula(this.id, '2')">Cerrar electrovalvula</ion-button> <!--"2" es para pedir que se cierre-->
+  <ion-button [disabled]="false" (click)="accionElectrovalvula(this.id, '1')">Abrir electrovalvula</ion-button> <!--"1" es para pedir que se abra-->
+  <ion-button [disabled]="false" (click)="accionElectrovalvula(this.id, '2')">Cerrar electrovalvula</ion-button> <!--"2" es para pedir que se cierre-->
+  <ion-button [disabled]="false" routerLink="/log-riego/{{this.id}}">Ver logs de riego</ion-button> <!--Acceso a los log de riego-->
 </ion-header>
 
 <ion-content [fullscreen]="true">
