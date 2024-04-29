@@ -2,12 +2,13 @@
   <ion-toolbar>
     <ion-title>Mediciones</ion-title>
   </ion-toolbar>
-  <!-- <ion-button routerLink="/dispositivo">Ir a dispositivos</ion-button> -->
+  <ion-button id="Abrir-{{this.id}}" [disabled]="false" (click)="accionElectrovalvula(this.id, '1')">Abrir electrovalvula</ion-button> <!--"1" es para pedir que se abra-->
+  <ion-button id="Cerrar-{{this.id}}"[disabled]="false" (click)="accionElectrovalvula(this.id, '2')">Cerrar electrovalvula</ion-button> <!--"2" es para pedir que se cierre-->
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    
+    <ion-item></ion-item>
     <ion-item *ngFor="let unidad of listadoMediciones">
       <ion-label>Medición ID: {{unidad.medicionId}}</ion-label><br />
       <ion-label>Fecha y hora: {{unidad.fecha}}</ion-label>

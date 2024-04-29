@@ -10,6 +10,7 @@ var pool = require('./mysql-connector');
 const jwt = require('jsonwebtoken')
 const routerDispositivo = require('./routes/dispositivos') // 
 const routerMedicion = require('./routes/mediciones/')
+const routerElectrovalvula = require('./routes/electrovalvula/')
 
 const YOUR_SECRET_KEY = 'mi llave' // Creacion manual de llave utilizada en la generación del token.
 var testUser = {username: 'test', password: '1234'}  // Creacion manual de ususario y contraseña.
@@ -47,6 +48,7 @@ app.use(myLogger) // Este middleware se va  a ejecutar en todos los endpoint que
 
 app.use('/dispositivo', routerDispositivo) // Al indicar la ruta el callback que se pasa sólo aplicará a esa ruta.
 app.use('/mediciones', routerMedicion)
+app.use('/electrovalvula', routerElectrovalvula)
 
 //=======[ Main module code ]==================================================
 
