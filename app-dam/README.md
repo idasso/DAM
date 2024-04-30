@@ -37,5 +37,4 @@ Luego, accediendo a través del botón "Ir a mediciones", se acederá a las medi
 
 - Implementar el gráfico "gauge" para la vista de la medición. Se intentó de diversas formas, sin embargo persistía la falla durante la compilación asociada a "highcharts".
 - Implementación del pipe custom.
-- Implementación de la directiva custom.
 - Inserción de medición luego del cierre de la válvula.

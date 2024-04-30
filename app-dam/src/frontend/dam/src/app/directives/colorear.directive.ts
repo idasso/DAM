@@ -1,7 +1,7 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[appColorear]'
+  selector: '[appColorear]' // Agrego ion-item para que la directiva pueda tener efecto en el tag de ionic.
 })
 export class ColorearDirective {
 
@@ -9,7 +9,7 @@ export class ColorearDirective {
 
   @HostListener('mouseenter')
   mouseEnter () {
-    this.colorear('blue')
+    this.colorear('#ced6ff')
   }
 
   @HostListener('mouseleave')

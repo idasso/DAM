@@ -10,13 +10,14 @@
 <ion-content [fullscreen]="true">
   <ion-list>
     <ion-item></ion-item>
-    <ion-item *ngFor="let unidad of listadoMediciones">
-      <ion-label>Medición ID: {{unidad.medicionId}}</ion-label><br />
-      <ion-label>Fecha y hora: {{unidad.fecha}}</ion-label>
-      <ion-label>Valor medición: {{unidad.valor}}</ion-label>
-      <ion-label>Dispositivo ID: {{unidad.dispositivoId}}</ion-label>
-    </ion-item>
-  
+    <div appColorear>
+      <ion-item *ngFor="let unidad of listadoMediciones">
+        <ion-label>Medición ID: {{unidad.medicionId}}</ion-label><br />
+        <ion-label>Fecha y hora: {{unidad.fecha}}</ion-label>
+        <ion-label>Valor medición: {{unidad.valor}}</ion-label>
+        <ion-label>Dispositivo ID: {{unidad.dispositivoId}}</ion-label>
+      </ion-item>
+    </div>
 </ion-list>
   <ion-header collapse="condense">
     <ion-toolbar>

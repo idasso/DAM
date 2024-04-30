@@ -11,16 +11,18 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <!-- <div appColorear>Prueba colorear</div> -->
   <ion-list>
-    
       <ion-item *ngFor="let unidad of listadoDispositivos">
-        <ion-label>Dispositivo ID: {{unidad.dispositivoId}}</ion-label><br />
-        <div *ngIf="mostrarDetalle">
-          <ion-label>Electrovalvula ID: {{unidad.electrovalvulaId}}</ion-label>
-          <ion-label>Nombre dispositivo: {{unidad.nombre}}</ion-label>
-          <ion-label>Ubicación dispositivo: {{unidad.ubicacion}}</ion-label>
+        <div appColorear>
+          <ion-label>Dispositivo ID: {{unidad.dispositivoId}}</ion-label><br />
+          <div *ngIf="mostrarDetalle">
+            <ion-label>Electrovalvula ID: {{unidad.electrovalvulaId}}</ion-label>
+            <ion-label>Nombre dispositivo: {{unidad.nombre}}</ion-label>
+            <ion-label>Ubicación dispositivo: {{unidad.ubicacion}}</ion-label>
+          </div>
+          <ion-button routerLink="/mediciones/{{unidad.dispositivoId}}">Ir a mediciones</ion-button>
         </div>
-        <ion-button routerLink="/mediciones/{{unidad.dispositivoId}}">Ir a mediciones</ion-button>
       </ion-item>
     
   </ion-list>
