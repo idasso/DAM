@@ -15,4 +15,25 @@ routerMedicion.get('/:id', function (req, res) {
     });
 })
 
+routerMedicion.post('/:id/:valor', function (req, res) {
+    console.log("Post en dispositivo #"+req.params.id)
+    dispositivoId = req.params.id
+    console.log("Post con valor: "+req.params.valor)
+    valor = req.params.valor
+    // console.log("llegó al backend el body: "+req.params.body) 
+    // console.log("llegó al backend el body: "+req.params.valor) 
+    // console.log("llegó al backend el body (parseado): "+JSON.parse(req.params.body))
+    //medicion = req.params.body
+    
+
+    pool.query('INSERT INTO `Mediciones` (`fecha`, `valor`, `dispositivoId`) VALUES (current_timestamp(), '+valor+', '+dispositivoId+')', function(err, result, fields) {
+         if (err) {
+             res.send(err).status(400); // Envío de código de error en caso que aplique.
+             return;
+         }
+         res.send(result); // Envío del resultado de la consulta.
+    });
+    
+})
+
 module.exports = routerMedicion

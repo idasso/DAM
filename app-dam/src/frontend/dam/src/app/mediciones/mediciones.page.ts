@@ -4,6 +4,7 @@ import { ElectrovalvulaService } from '../services/electrovalvula.service';
 import { ObtenerIdElectrovalvulaService } from '../services/obtener-id-electrovalvula.service';
 import { Medicion } from '../interfaces/medicion';
 import { Router, UrlSegment } from '@angular/router';
+import { PostmedicionService } from '../services/postmedicion.service';
 
 
 
@@ -22,7 +23,8 @@ export class MedicionesPage implements OnInit {
   cambioVista: Boolean = false
 
   constructor(
-    private _medicionService: MedicionService, 
+    private _medicionService: MedicionService,
+    private _postMedicionService: PostmedicionService, 
     private router: Router, 
     private _electrovalvulaService: ElectrovalvulaService,
     private _obtenerIdElectrovalvulaService: ObtenerIdElectrovalvulaService
@@ -54,10 +56,13 @@ export class MedicionesPage implements OnInit {
 
   async accionElectrovalvula(dispoId: String, abrir: String){
     await this.obtenerIdElectrovalvula(dispoId)
-    console.log('Abrir eletroválvula #'+this.evId)
+    console.log('Abrir/cerrar eletroválvula #'+this.evId)
     let aux: String
     if (this.evId !== undefined){
       aux = this.evId
+      if (abrir=="2") {//"2" es para pedir que se cierre, entonces tiene que agregar una medición en la BD.
+        await this._postMedicionService.postMedicion (dispoId, this.crearMedicion()) 
+      }
       await this._electrovalvulaService.postElectrovalvula (aux, abrir)
       .then((data) => {
         console.log(data)
@@ -68,8 +73,10 @@ export class MedicionesPage implements OnInit {
     } else{
       console.log("Error: 'id' es undefined")
     }
-    return
+    return 
   }
+
+
 
   // async cerrarElectrovalvula(dispoId: String){
   //   console.log('Cerrar eletroválvula del dispotivo con ID:'+dispoId)
@@ -96,9 +103,17 @@ export class MedicionesPage implements OnInit {
     })
   }
 
-  buttonChange(){
+  buttonChange(): Boolean{
     return this.cambioVista = !this.cambioVista 
   }
   
+  crearMedicion(): string { // Valor de medición generado en forma random entre 0 y 60. 
+    let medicion = Math.round(Math.random()*60)
+    console.log("medicion creada: " + medicion.toString())
+    // let mensaje = { valor: medicion }
+    // console.log("medicion creada JSON.stringify: "+JSON.stringify(mensaje))
+    // return JSON.stringify(mensaje)
+    return medicion.toString()
+  } 
 
 }

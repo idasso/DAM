@@ -7,7 +7,7 @@ const routerElectrovalvula = express.Router()
 routerElectrovalvula.post('/:id/:abrir', function (req, res) {
     console.log("llegó el pedido de post con: "+req.params.id)
     electrovalvulaId = req.params.id
-    console.log("post Abrir?: "+req.params.abrir)
+    console.log("Post Abrir? (1) Cerrar? (2): "+req.params.abrir)
     control = req.params.abrir
     //console.log("llegó al backend el body: "+JSON.parse(req.body))
 

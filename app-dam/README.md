@@ -35,5 +35,4 @@ Luego, accediendo a través del botón "Ir a mediciones", se acederá a las medi
 
 ### Aspectos no completados
 
-- Implementar el gráfico "gauge" para la vista de la medición. Se intentó de diversas formas, sin embargo persistía la falla durante la compilación asociada a "highcharts".
-- Inserción de medición luego del cierre de la válvula.
+- Implementar el gráfico "gauge" para la vista de la medición. Se intentó de diversas formas, sin embargo persiste la falla durante la compilación asociada a "highcharts".
