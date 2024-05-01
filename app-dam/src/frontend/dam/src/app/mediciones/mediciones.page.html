@@ -5,6 +5,7 @@
   <ion-button [disabled]="false" (click)="accionElectrovalvula(this.id, '1')">Abrir electrovalvula</ion-button> <!--"1" es para pedir que se abra-->
   <ion-button [disabled]="false" (click)="accionElectrovalvula(this.id, '2')">Cerrar electrovalvula</ion-button> <!--"2" es para pedir que se cierre-->
   <ion-button [disabled]="false" routerLink="/log-riego/{{this.id}}">Ver logs de riego</ion-button> <!--Acceso a los log de riego-->
+  <ion-toggle [checked]="cambioVista" (ionChange)="buttonChange()">Ver medición en porcentaje</ion-toggle>
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -14,8 +15,15 @@
       <ion-item *ngFor="let unidad of listadoMediciones">
         <ion-label>Medición ID: {{unidad.medicionId}}</ion-label><br />
         <ion-label>Fecha y hora: {{unidad.fecha}}</ion-label>
-        <ion-label>Valor medición: {{unidad.valor}}</ion-label>
         <ion-label>Dispositivo ID: {{unidad.dispositivoId}}</ion-label>
+        <ion-label>Valor medición:
+          <ng-container *ngIf="cambioVista; else elseBlock">
+            {{unidad.valor | medicionPorcentual }} %
+          </ng-container>
+          <ng-template #elseBlock>
+            {{ unidad.valor}} kPa
+          </ng-template>
+        </ion-label>
       </ion-item>
     </div>
 </ion-list>

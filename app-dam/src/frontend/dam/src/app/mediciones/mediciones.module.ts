@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { MedicionesPageRoutingModule } from './mediciones-routing.module';
 import { MedicionesPage } from './mediciones.page';
+import { MedicionPorcentualPipe } from '../pipes/medicion-porcentual.pipe';
 
 @NgModule({
   imports: [
@@ -12,6 +13,6 @@ import { MedicionesPage } from './mediciones.page';
     IonicModule,
     MedicionesPageRoutingModule
   ],
-  declarations: [MedicionesPage]
+  declarations: [MedicionesPage, MedicionPorcentualPipe]
 })
 export class MedicionesPageModule {}

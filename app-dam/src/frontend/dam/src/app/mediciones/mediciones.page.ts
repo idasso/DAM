@@ -19,6 +19,7 @@ export class MedicionesPage implements OnInit {
   aux: String | undefined
   id: String
   evId: String | undefined
+  cambioVista: Boolean = false
 
   constructor(
     private _medicionService: MedicionService, 
@@ -36,6 +37,7 @@ export class MedicionesPage implements OnInit {
     console.log(this.id)
   }
   
+  number: string  = "45"
 
   async ngOnInit() {
     await this._medicionService.getMediciones(this.id)
@@ -92,6 +94,10 @@ export class MedicionesPage implements OnInit {
     .catch((error) => {
       console.log(error)
     })
+  }
+
+  buttonChange(){
+    return this.cambioVista = !this.cambioVista 
   }
   
 
